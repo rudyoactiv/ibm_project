@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import "./Login.css";
 import Header from '../Header/Header';
 
@@ -33,40 +32,39 @@ const Login = ({ onClose }) => {
     else {
       alert("The user could not be authenticated.")
     }
-};
+  };
 
   if (!open) {
     window.location.href = "/";
   };
   
-
   return (
     <div>
       <Header/>
-    <div onClick={onClose}>
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className='modalContainer'
-      >
+      <div onClick={onClose}>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className='modalContainer'
+        >
           <form className="login_panel" style={{}} onSubmit={login}>
-              <div>
+            <div>
               <span className="input_field">Username </span>
               <input type="text"  name="username" placeholder="Username" className="input_field" onChange={(e) => setUserName(e.target.value)}/>
-              </div>
-              <div>
+            </div>
+            <div>
               <span className="input_field">Password </span>
               <input name="psw" type="password"  placeholder="Password" className="input_field" onChange={(e) => setPassword(e.target.value)}/>            
-              </div>
-              <div>
+            </div>
+            <div>
               <input className="action_button" type="submit" value="Login"/>
               <input className="action_button" type="button" value="Cancel" onClick={()=>setOpen(false)}/>
-              </div>
-              <a className="loginlink" href="/register">Register Now</a>
+            </div>
+            <a className="loginlink" href="/register">Register Now</a>
           </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
